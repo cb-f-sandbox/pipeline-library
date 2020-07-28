@@ -5,7 +5,7 @@ spec:
   serviceAccountName: jenkins
   containers:
   - name: kaniko
-    image: gcr.io/kaniko-project/executor@sha256:f652f28537fa76e8f4f9393de13a064f0206003c451ce2ad6e4359fd5a21acbc
+    image: docker.cb-demos.io/ldonley/kaniko:v0.24
     imagePullPolicy: Always
     command:
     - /busybox/cat
@@ -13,3 +13,5 @@ spec:
     securityContext:
       runAsUser: 0
       runAsGroup: 0
+  imagePullSecrets:
+  - name: nexuscred
