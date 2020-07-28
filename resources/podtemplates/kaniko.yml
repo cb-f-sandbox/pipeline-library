@@ -13,5 +13,17 @@ spec:
     securityContext:
       runAsUser: 0
       runAsGroup: 0
+    volumeMounts:
+    - name: docker-config
+      mountPath: /kaniko/.docker/
+  volumes:
+  - name: docker-config
+    projected:
+      sources:
+      - secret:
+          name: nexuscred
+          items:
+           - key: .dockerconfigjson
+             path: config.json
   imagePullSecrets:
   - name: nexuscred
