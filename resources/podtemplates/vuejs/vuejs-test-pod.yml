@@ -4,7 +4,7 @@ metadata:
 spec:
   containers:
   - name: nodejs
-    image: node:lts-alpine
+    image: timbru31/java-node:jdk-12-erbium
     command:
     - cat
     tty: true
